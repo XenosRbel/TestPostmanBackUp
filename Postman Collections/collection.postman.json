@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "bf05e0d5-8b5a-4126-bfbc-d0936e851607",
+		"name": "[GATEWAYS] Starpay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Init Payin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac3fcd40-d085-4ee9-a73e-8ac510416319",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "20d15e2d-be29-4796-ba20-b981718763d9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{MERCHANT_PRIVATE_KEY}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product\": \"Test Payin\",\r\n    \"amount\": 4000,\r\n    \"currency\": \"MXN\",\r\n    \"redirect_success_url\": \"{{successUrl}}\",\r\n    \"redirect_fail_url\": \"{{failUrl}}\",\r\n    \"callback_url\": \"{{callbackUrl}}\",\r\n    \"return_url\": \"{{returnUrl}}\",\r\n    \"locale\": \"{{locale}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{protocol}}://{{gatewayRouterHost}}/api/v1/init/{{payin}}"
+			},
+			"response": [
+				{
+					"id": "2e72d6e2-dd4e-4157-bfab-c0b58c7b7a9c",
+					"name": "Init Payin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"Test Payin\",\r\n    \"amount\": 1000000,\r\n    \"currency\": \"MXN\",\r\n    \"redirect_success_url\": \"{{successUrl}}\",\r\n    \"redirect_fail_url\": \"{{failUrl}}\",\r\n    \"callback_url\": \"{{callbackUrl}}\",\r\n    \"return_url\": \"{{returnUrl}}\",\r\n    \"locale\": \"{{locale}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{protocol}}://{{gatewayRouterHost}}/api/v1/init/{{payin}}"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a00e968b41b87264598584ff039cae5\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "279b8156-9382-4104-bd9d-9af29f7bc0e9"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.230233"
+						},
+						{
+							"key": "Content-Length",
+							"value": "357"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"success\": true,\n    \"token\": \"643933d5dcb54b56a22ddd12c214e962\",\n    \"host_to_host_url\": {\n        \"ppg\": \"http://*******/api/v1/payments/643933d5dcb54b56a22ddd12c214e962?method=ppg\"\n    },\n    \"payment_page_url\": {\n        \"total\": \"http://*******?token=643933d5dcb54b56a22ddd12c214e962\",\n        \"methods\": {\n            \"ppg\": \"http://*******?token=643933d5dcb54b56a22ddd12c214e962&method=ppg\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Init Payout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac3fcd40-d085-4ee9-a73e-8ac510416319",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "62583979-9665-4b05-bc2e-8741120dc0b6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{MERCHANT_PRIVATE_KEY}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product\": \"Test Payout\",\r\n    \"amount\": 2000,\r\n    \"currency\": \"MXN\",\r\n    \"redirect_success_url\": \"{{successUrl}}\",\r\n    \"redirect_fail_url\": \"{{failUrl}}\",\r\n    \"callback_url\": \"{{callbackUrl}}\",\r\n    \"return_url\": \"{{returnUrl}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"bank_account\": {\r\n        \"bank_code\": \"40012\", \r\n        \"bank_name\": \"BBVABANCOMER\", \r\n        \"account_number\": \"012180015026856461\", \r\n        \"account_holder\": \"xiaojie\", \r\n        \"account_type\": \"40\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{protocol}}://{{gatewayRouterHost}}/api/v1/init/{{payout}}"
+			},
+			"response": [
+				{
+					"id": "976bdf34-d7d6-4b7b-8f83-8c617030a281",
+					"name": "Init Payout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"Test Payout\",\r\n    \"amount\": 1000000,\r\n    \"currency\": \"MXN\",\r\n    \"redirect_success_url\": \"{{successUrl}}\",\r\n    \"redirect_fail_url\": \"{{failUrl}}\",\r\n    \"callback_url\": \"{{callbackUrl}}\",\r\n    \"return_url\": \"{{returnUrl}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"bank_account\": {\r\n        \"bank_code\": \"40012\", \r\n        \"bank_name\": \"BBVABANCOMER\", \r\n        \"account_number\": \"012180015026856461\", \r\n        \"account_holder\": \"xiaojie\", \r\n        \"account_type\": \"40\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{protocol}}://{{gatewayRouterHost}}/api/v1/init/{{payout}}"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c83b82b1d2129025c97b4874640e0bbf\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "102c83cd-e35d-4905-8e8b-e0f1540d84a4"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.345105"
+						},
+						{
+							"key": "Content-Length",
+							"value": "397"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"success\": true,\n    \"token\": \"b63e6ecab3aa4a258614b7290072de29\",\n    \"host_to_host_url\": {\n        \"bank_transfer\": \"http://*******/api/v1/payments/b63e6ecab3aa4a258614b7290072de29?method=bank_transfer\"\n    },\n    \"payment_page_url\": {\n        \"total\": \"http://*******?token=b63e6ecab3aa4a258614b7290072de29\",\n        \"methods\": {\n            \"bank_transfer\": \"http://*******?token=b63e6ecab3aa4a258614b7290072de29&method=bank_transfer\"\n        }\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "08248c34-890b-4005-bd8a-be192a200eb0",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "33eae00d-9cc1-48f0-937e-78af004f1ab2",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "MERCHANT_PRIVATE_KEY",
+			"value": "a6e391ee43d172e1f0f7",
+			"type": "string"
+		}
+	]
+}
